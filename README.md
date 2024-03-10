@@ -1,1 +1,1 @@
-# BMSTU_Poject
+# BMSTU_Project

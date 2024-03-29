@@ -1,23 +1,18 @@
 <script>
+  let hoveredIndex = null;
+
+  function handleMouseEnter(index) {
+    hoveredIndex = index;
+  }
+
+  function handleMouseLeave() {
+    hoveredIndex = null;
+  }
   
 
 
   
   const apiKey = 'AIzaSyCf72M2WmMeWnrJ0ADzfZv86Ap7EI3ASNU';
-  
-  import { onMount } from 'svelte';
-
-  onMount(() => {
-    document.getElementById('about-link').addEventListener('click', navigateToPage);
-
-  });
-
-
-  function navigateToPage() {
-    window.location.href = '/Home';
-  }
-
-
   
 
   let timer;
@@ -40,7 +35,7 @@
       platforms: [
         { main: "PS", additional: [] },
         { main: "Xbox", additional: [] },
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],  
     },
     { 
@@ -54,7 +49,7 @@
       logo: { image: "src/img/Logo/Warcraft 1 logo 1.png", position: { top: '5%' }, sizeClasses: "8k:w-[2224px] 8k:h-[890px] 4k:w-[1224px] 4k:h-[550px] 2k:w-[724px] 2k:h-[350px] xl:w-[490px] xl:h-[203px] lg:w-[290px] lg:h-[133px] sm:w-[202px] sm:h-[99px] xsm:w-[97px] xsm:h-[50px] 8k:ml-[2720px] 4k:ml-[1320px] 2k:ml-[590px] xl:ml-[380px] lg:mt-[5px] lg:ml-[380px] md:mt-[20px] md:ml-[260px] sm:mt-[0px] sm:ml-[220px] xsm:mt-[0px] xsm:ml-[150px] " },
       platforms: [
         { main: "MacOs", additional: [] },
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],    
     },
     { 
@@ -70,7 +65,7 @@
         { main: "Nintendo Switch", additional: [] },
         { main: "PS", additional: [] },
         { main: "Xbox", additional: [] },
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],     
     },
     { 
@@ -87,7 +82,7 @@
         { main: "iOS", additional: ["App Store", "Apple Arcade"] },
         { main: "macOS", additional: [] },
         { main: "Linux", additional: [] },
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],     
     },
     { 
@@ -100,7 +95,7 @@
       },
       logo: { image: "src/img/Logo/Warhammer-40k-logo 1.png", position: { top: '0%', left: '3%' }, sizeClasses: "8k:w-[1900px] 8k:h-[1220px] 4k:w-[1124px] 4k:h-[650px] 2k:w-[424px] 2k:h-[280px] xl:h-[188px] lg:w-[251.05px] lg:h-[148.95px] md:w-[186px] md:h-[129px] sm:w-[140px] sm:h-[87px] xsm:w-[97px] xsm:h-[57px] xl:ml-[1px] xl:mt-[40px]  lg:mt-[30px] lg:ml-[1px] md:mt-[10px] md:ml-[0px] sm:mt-[30px] sm:ml-[0px] xsm:mt-[20px] xsm:ml-[0px]" },
       platforms: [
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],  
     },
     { 
@@ -115,17 +110,17 @@
       platforms: [
         { main: "PS", additional: [] },
         { main: "Xbox", additional: [] },
-        { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
+        { main: "Windows", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],   
     },
     { 
-      video: "wB8BTbExm8g",
+      video: "VSqRyFHMI_A",
       image: "", 
       text: "", 
       position: {
         top: '15%',
         
-        classPos: '8k:mt-1980px] 4k:pt-[780px] 2k:pt-[480px] xl:pt-[250px] xl:pl-[10px] lg:pt-[170px] lg:pl-[10px] md:pt-[90px] md:pl-[1px] sm:pt-[70px] sm:pl-[1px] xsm:pt-[30px] xsm:pl-[1px]',  
+        classPos: '8k:mt-[1980px] 4k:pt-[780px] 2k:pt-[480px] xl:pt-[250px] xl:pl-[10px] lg:pt-[170px] lg:pl-[10px] md:pt-[90px] md:pl-[1px] sm:pt-[70px] sm:pl-[1px] xsm:pt-[30px] xsm:pl-[1px]',  
       },
       platforms: [],   
     },
@@ -207,16 +202,34 @@
   }
 
   function calculateVideoAspectRatio(positionClass) {
-    const regex = /8k:pt-\[\d+px\]/;
+    const regex = /8k:pt-\[(\d+)px\]/;
     const match = positionClass.match(regex);
     if (match) {
-      const height = parseInt(match[0].match(/\d+/)[0]);
-      // Assuming width is half of the height
-      const width = height / 2;
-      return `${(height / width) * 100}%`;
+      const height = parseInt(match[1]);
+      const videoWidth = (height * 16) / 9; // Рассчитываем ширину видео для соотношения 16:9
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute('style', `height: ${height}px; width: ${videoWidth}px; visibility: hidden; position: absolute;`);
+      document.body.appendChild(videoElement);
+      const aspectRatio = videoElement.clientWidth / videoElement.clientHeight;
+      document.body.removeChild(videoElement);
+      return `${(100 * 9 / 16).toFixed(2)}%`; // Возвращаем высоту видео в процентах, чтобы сохранить 16:9 соотношение сторон
     }
     return "56.25%"; // Default aspect ratio for 16:9
   }
+
+
+  function calculateVideoHeight(positionClass) {
+    const regex = /8k:pt-\[(\d+)px\]/;
+    const match = positionClass.match(regex);
+    if (match) {
+        return parseInt(match[1]);
+    }
+    return 100; // Высота видео по умолчанию
+  }
+
+
+
+
 
   
   
@@ -227,23 +240,31 @@
 
 
 <style>
+  
   .main-image {
     width: 100%;
     height: auto;
-    max-width: 100vw; 
-    max-height: 100vh; 
   }
 
   .arrow-button {
     position: absolute;
-    top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     border: none;
     color: white;
     font-size: 2xl;
     cursor: pointer;
+    
+    
+    
+
   }
+
+  .arrow-button:hover img {
+    transform: scale(1.3);
+    
+  }
+
 
   .arrow-button.left {
     left: 4px;
@@ -256,7 +277,7 @@
   .video-container {
     position: relative;
     overflow: hidden;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 45.25%; /* 16:9 aspect ratio */
     max-width: 100%;
   }
   
@@ -267,37 +288,38 @@
     width: 100%;
     
   }
-  
-
 </style>
 
-<header title="Esc" class="w-full h-10 2k:h-20 4k:h-32 8k:h-64 m-5 text-white">
+<header title="Esc" class="text-white">
   <nav class="flex items-center justify-between px-4">
-    <!-- Кнопка, при клике на которую открывается второй блок кода -->
-    <a href="/esc" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full inline-block">Часть 2</a>
+    <a href="/esc" class="my-5 8k:my-[70px] 8k:ml-[70px] bg-blue-500 hover:bg-blue-600 font-bold rounded-full inline-block text-sm py-2 px-4 sm:text-base sm:py-3 sm:px-6 md:text-lg md:py-2 md:px-3 lg:text-[12px] lg:py-1 lg:px-2 2k:text-xl 2k:py-3 2k:px-5 4k:text-3xl 4k:py-6 4k:px-12 8k:text-6xl 8k:py-[50px] 8k:px-[110px]">
+      Часть 2
+    </a>
   </nav>
+  <slot></slot>
 </header>
+
+
 
 
 <main class="p-0 relative flex flex-col items-center">
  <!-- Video or Image Section -->
- <div class="relative w-full h-full">
+ <div class="w-full h-full">
   {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
-    <!-- Embed full-size YouTube video for the last slide -->
-    <div
-      class="video-container w-full"
-      style={`padding-bottom: ${calculateVideoAspectRatio(carouselItems[mainImageIndex].position.classPos)};`}
-    >
-      <iframe
-        title="video"
-        class="w-full h-full"
-        src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        on:timeupdate={handleVideoTimeUpdate}
-        on:playing={startTimer}
-      ></iframe>
-    </div>
+  <div class="video-container w-full" style="position: relative;">
+    <iframe
+      title="video"
+      class="w-full h-full"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+      src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      on:timeupdate={handleVideoTimeUpdate}
+      on:playing={startTimer}
+    ></iframe>
+  </div>
+  
+  
   {:else}
     <!-- Display image for other slides -->
     <img class="main-image w-full object-fill" alt="" src={carouselItems[mainImageIndex].image} />
@@ -326,70 +348,82 @@
 
     
   
-    <div class="absolute bottom-0 left-0 w-full h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap mb-7">
+    <div class="absolute bottom-0 left-0 w-full h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap 4k:pr-[200px] 4k:mb-[65px] 2k:mb-[40px] xl:mb-[30px] lg:mb-[18px] md:mb-[20px] sm:mb-[14px]">
       {#if mainImageIndex !== carouselItems.length - 1 || !carouselItems[mainImageIndex].video}
-        <div class="text-white text-[28px] 8k:text-[200px] 4k:text-[75px] 2k:text-[32px] xl:text-[24px] lg:text-xl md:text-xl sm:text-[17px] font-normal font-['Inter'] leading-[23px] whitespace-nowrap 8k:mb-[420px] 4k:mb-[120px] 4k:pl-[100px] xl:mt-[10px] xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block ">
+        <div class="text-white 8k:mb-[530px] 4k:mb-[150px] xl:mb-[20px] md:mb-[20px] sm:mb-[25px] text-[28px] 8k:text-[160px] 4k:text-[75px] 2k:text-[32px] xl:text-[24px] lg:text-xl md:text-xl sm:text-[17px] font-normal font-['Inter'] leading-[23px] whitespace-nowrap  4k:pl-[100px] xl:mt-[10px] xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block ">
           Buy it for
         </div>
     
         {#if visiblePlatforms.length > 0}
           {#each visiblePlatforms as platform (platform)}
-            <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[150px] ">
-              <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group 4k:w-[130px] 4k:h-[130px]">
-                <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
-                <div class="text-center text-white text-opacity-0 sm:text-xs md:text-lg xl:text-xl 2k:text-xl 4k:text-4xl 8k:text-7xl font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">{platform}</div>
+          <!-- secondaru icons -->
+            <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[130px]">
+              <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] xl:mb-[10px] md:mb-[20px] sm:mb-[25px] relative group flex flex-col items-center">  <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
+                <div class="text-center text-white text-opacity-0 8k:text-[75px] 8k:mt-[0] 4k:text-[32px] 4k:mt-0 2k:text-[14px] xl:text-[12px] md:text-[12px] sm:text-[12px] font-light font-['Inter'] leading-[23px]  group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">
+                  {platform}
+                </div>
               </div>
             </div>
           {/each}
           <div
             role="button"
             tabindex="0"
-            class="w-11 h-[47px] flex-col justify-start items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[110px] 4k:mb-[220px] 2k:mb-[15px] md:mt-[20px] sm:mt-[25px] "
+            class="w-11 h-[47px] flex-col justify-start items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[110px] 4k:mb-[220px]  md:mt-[20px] sm:mt-[25px] 2k:mb-[23px] xl:mb-[20px] sm:mb-[20px]"
             on:click={resetVisiblePlatforms}
             on:keydown={e => e.key === 'Enter' && goToSlide()}
           >
-            <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] 4k:w-[130px] 4k:h-[130px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group ">
-              <img class="w-full h-full " src={`src/img/Arrows/Back.svg`} alt="Arrow Back" />
-              <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px]  4k:text-[32px] 2k:text-[14px] xl:text-[12px] md:text-[9px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">Back</div>
+            <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group ">
+              <img class="w-full h-full" src={`src/img/Arrows/Back.svg`} alt="Arrow Back" />
+              <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px]  4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">Back</div>
             </div>
           </div>
         {:else}
           {#each carouselItems[mainImageIndex].platforms as platform (platform)}
+          <!-- main icons -->
             <div
-              role="button"
-              tabindex="0"
-              class="w-11 h-[47px] text-center flex-col justify-start items-center gap-2.5 inline-flex group ml-[20px] 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[110px] 4k:mb-[220px]  sm:mt-[18px] xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block "
-              on:click={() => showAdditionalPlatforms(mainImageIndex, platform.main)}
-              on:keydown={e => e.key === 'Enter' && goToSlide()}
-            >
-              <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] 4k:w-[130px] 4k:h-[130px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group ">
-                <img class="w-full h-full " src={`src/img/Platforms/${platform.main}.svg`} alt={platform.main} />
-                <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px] 4k:text-[32px] 2k:text-[14px] xl:text-[12px] md:text-[9px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">{platform.main}</div>
+            role="button"
+            tabindex="0"
+            class="w-11 h-[47px] text-center flex-col justify-start items-center gap-2.5 inline-flex mb-5 group ml-[20px] 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[100px] 4k:mb-[220px]  sm:mt-[18px] xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block "
+            on:click={() => showAdditionalPlatforms(mainImageIndex, platform.main)}
+            on:keydown={e => e.key === 'Enter' && goToSlide()}
+          >
+            <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group flex flex-col items-center">
+              <img class="w-full h-full " src={`src/img/Platforms/${platform.main}.svg`} alt={platform.main} />
+              <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px] 4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">
+                {platform.main}
               </div>
             </div>
+          
+          </div>
           {/each}
         {/if}
       {/if}
     </div>
     
     <!-- Navigation elements placed below text -->
-    <div class="absolute bottom-0 left-0 w-full h-10 flex justify-center items-center ">
+    <div class="absolute bottom-0 left-0 w-full h-10 flex justify-center items-center 4k:mb-[20px]">
       {#each carouselItems as { image }, index (image)}
         <div
           role="button"
           tabindex="0"
-          class="{ 'w-[50px] h-[9px] 8k:w-[350px] 8k:h-[50px] 8k:mx-[20px] 4k:w-[140px] 4k:h-[25px] 4k:mx-[10px] 2k:w-[60px] 2k:h-[10px] xl:w-[50px] xl:h-[9px] sm:w-[40px] sm:h-[7px] xsm:w-[30px] xsm:h-[8px] 8k:mb-20 mx-1 transition duration-300 ease-in-out cursor-pointer ' + (index === mainImageIndex ? 'bg-white rounded-sm' : 'bg-zinc-400 rounded-sm') }"
+          class="{ 'w-[50px] h-[9px] 8k:w-[350px] 8k:h-[50px] 8k:mx-[20px] 4k:w-[140px] 4k:h-[25px] 4k:mx-[10px] 2k:w-[60px] 2k:h-[10px] xl:w-[50px] xl:h-[9px] sm:w-[40px] sm:h-[7px] xsm:w-[30px] xsm:h-[8px] 8k:mb-20 mx-1 transition duration-300 ease-in-out cursor-pointer rounded-sm ' + (index === mainImageIndex ? 'bg-white' : (hoveredIndex === index ? 'bg-white' : 'bg-zinc-400')) }"
           on:click={() => goToSlide(index)}
           on:keydown={e => e.key === 'Enter' && goToSlide(index)}
+          on:mouseenter={() => handleMouseEnter(index)}
+          on:mouseleave={() => handleMouseLeave(index)}
         ></div>
       {/each}
+    
+    
 
-      <button on:click={prevImage} class="arrow-button left h-full 8k:pb-[3600px] 4k:pb-[1900px] 2k:pb-[900px] pl-4 xl:pb-[600px] lg:pb-[450px] md:pb-[300px] sm:pb-[250px] 2k:pl-[27px] sm:pl-[2px]">
-        <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[100px] 8k:h-[100px] 4k:w-[50px] 4k:h-[50px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/bx-top-arrow.svg" alt="Left Arrow" />
+      <button on:click={prevImage} class="arrow-button left h-full 8k:py-[1700px] 4k:py-[850px] 2k:py-[430px] pl-4 xl:py-[290px] xl:mt-[30px] lg:py-[230px] lg:mt-[50px] md:py-[170px] md:mt-[30px] sm:py-[135px]  8k:pl-[165px] 4k:pl-[80px] 2k:pl-[35px] xl:pl-[25px] lg:pl-[20px]  sm:pr-[70px] focus:outline-none focus:ring-2 focus:ring-offset-2">
+        <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[75px] 8k:h-[75px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/bx-top-arrow.svg" alt="Left Arrow" />
       </button>
-      <button on:click={nextImage} class="arrow-button right h-full pr-4 8k:pb-[3800px] 4k:pb-[1900px] 2k:pb-[900px] xl:pb-[600px] lg:pb-[450px] md:pb-[300px] sm:pb-[250px] 2k:pr-[27px] sm:pr-[2px]">
-        <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[100px] 8k:h-[100px] 4k:w-[50px] 4k:h-[50px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/icon-arrow-right.svg" alt="Right Arrow" />
+    
+      <button on:click={nextImage} class="arrow-button right h-full pr-4 8k:py-[1700px] 4k:py-[850px] 2k:py-[430px] xl:py-[290px] xl:mt-[30px] lg:py-[230px] md:py-[170px] md:mt-[30px] sm:py-[135px] 8k:pr-[165px] 4k:pr-[80px] 2k:pr-[35px] xl:pr-[25px] lg:pr-[20px] md:pr-[13px] sm:pl-[70px] focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[75px] 8k:h-[75px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/icon-arrow-right.svg" alt="Right Arrow" />
       </button>
+    
     </div>
   </div>
 </main>

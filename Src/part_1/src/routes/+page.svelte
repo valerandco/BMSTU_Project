@@ -416,11 +416,11 @@
     
     
 
-      <button on:click={prevImage} class="arrow-button left h-full 8k:py-[1700px] 4k:py-[850px] 2k:py-[430px] pl-4 xl:py-[290px] xl:mt-[30px] lg:py-[230px] lg:mt-[50px] md:py-[170px] md:mt-[30px] sm:py-[135px]  8k:pl-[165px] 4k:pl-[80px] 2k:pl-[35px] xl:pl-[25px] lg:pl-[20px]  sm:pr-[70px] focus:outline-none focus:ring-2 focus:ring-offset-2">
+      <button on:click={prevImage} class="arrow-button left py-[22%] px-[3%] mt-[0%]">
         <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[75px] 8k:h-[75px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/bx-top-arrow.svg" alt="Left Arrow" />
       </button>
     
-      <button on:click={nextImage} class="arrow-button right h-full pr-4 8k:py-[1700px] 4k:py-[850px] 2k:py-[430px] xl:py-[290px] xl:mt-[30px] lg:py-[230px] md:py-[170px] md:mt-[30px] sm:py-[135px] 8k:pr-[165px] 4k:pr-[80px] 2k:pr-[35px] xl:pr-[25px] lg:pr-[20px] md:pr-[13px] sm:pl-[70px] focus:outline-none focus:ring-2 focus:ring-offset-2">
+      <button on:click={nextImage} class="arrow-button right py-[22%] px-[3%] mt-[0%]">
           <img class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[75px] 8k:h-[75px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]" src="src/img/Arrows/icon-arrow-right.svg" alt="Right Arrow" />
       </button>
     

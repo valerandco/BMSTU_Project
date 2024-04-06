@@ -1,15 +1,19 @@
 <script>
   let currentIndex = 0;
+  
   let images = [
-    'src/img/Escapists 2 0.png',
-    'src/img/Escapists 2 1.png',
-    'src/img/Escapists 2 2.png',
-    'src/img/Escapists 2 3.png',
-    'src/img/Escapists 2 4.png',
-    'src/img/Escapists 2 5.png',
-    'src/img/Escapists 2 6.png',
-    'src/img/Escapists 2 7.png',
+    '/img/Escapists 2 0.png',
+    '/img/Escapists 2 1.png',
+    '/img/Escapists 2 2.png',
+    '/img/Escapists 2 3.png',
+    '/img/Escapists 2 4.png',
+    '/img/Escapists 2 5.png',
+    '/img/Escapists 2 6.png',
+    '/img/Escapists 2 7.png',
   ];
+
+
+  
 
   function updateIndex(index) {
     currentIndex = index;
@@ -80,7 +84,7 @@
 >
   <img
     class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[80px] 8k:h-[80px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]"
-    src="src/img/Arrows/bx-top-arrow.svg"
+    src="/img/Arrows/bx-top-arrow.svg"
     alt="Left Arrow"
   />
 </button>
@@ -91,7 +95,7 @@
 >
  <img
    class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[80px] 8k:h-[80px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]"
-   src="src/img/Arrows/icon-arrow-right.svg"
+   src="/img/Arrows/icon-arrow-right.svg"
    alt="Right Arrow"
  />
 </button>

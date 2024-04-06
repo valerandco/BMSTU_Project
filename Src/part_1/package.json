@@ -16,10 +16,14 @@
 		"postcss-preset-env": "^9.1.1",
 		"svelte": "^4.0.5",
 		"svelte-kit": "^1.2.0",
-		"svelte-spa-router": "^4.0.0",
+		"svelte-spa-router": "^4.0.1",
 		"tailwindcss": "^3.3.3",
 		"typescript": "^5.3.3",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"svelte-carousel": "^1.0.25",
+		"svelte-routing": "^2.12.0"
+	}
 }

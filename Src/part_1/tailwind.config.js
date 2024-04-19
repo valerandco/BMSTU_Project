@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}',
+  'node_modules/preline/dist/*.js',],
   theme: {
     extend: {
       fontFamily: {
@@ -28,5 +29,7 @@ export default {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('preline/plugin')
+  ],
 };

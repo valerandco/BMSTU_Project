@@ -1,6 +1,4 @@
 <script>
-
-  
   let hoveredIndex = null;
 
   function handleMouseEnter(index) {
@@ -132,6 +130,13 @@
     
   ];
 
+
+
+  function changeMainImage(index) {
+    mainImageIndex = index;
+    resetVisiblePlatforms();
+  }
+
   function nextImage() {
     mainImageIndex = (mainImageIndex + 1) % carouselItems.length;
     resetVisiblePlatforms();
@@ -184,6 +189,14 @@
   
 
 
+
+
+  function handleKeyDown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      goToSlide(event.detail);
+    }
+  }
+
   function showAdditionalPlatforms(index, platform) {
     visiblePlatforms = carouselItems[index].platforms.find(p => p.main === platform)?.additional || [];
   }
@@ -192,10 +205,44 @@
     return `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&controls=0&showinfo=0&autohide=1&mute=1&modestbranding=1&loop=1&rel=0&key=${apiKey}`;
   }
 
+  function calculateVideoAspectRatio(positionClass) {
+    const regex = /8k:pt-\[(\d+)px\]/;
+    const match = positionClass.match(regex);
+    if (match) {
+      const height = parseInt(match[1]);
+      const videoWidth = (height * 16) / 9; // Рассчитываем ширину видео для соотношения 16:9
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute('style', `height: ${height}px; width: ${videoWidth}px; visibility: hidden; position: absolute;`);
+      document.body.appendChild(videoElement);
+      const aspectRatio = videoElement.clientWidth / videoElement.clientHeight;
+      document.body.removeChild(videoElement);
+      return `${(100 * 9 / 16).toFixed(2)}%`; // Возвращаем высоту видео в процентах, чтобы сохранить 16:9 соотношение сторон
+    }
+    return "56.25%"; // Default aspect ratio for 16:9
+  }
+
+
+  function calculateVideoHeight(positionClass) {
+    const regex = /8k:pt-\[(\d+)px\]/;
+    const match = positionClass.match(regex);
+    if (match) {
+        return parseInt(match[1]);
+    }
+    return 100; // Высота видео по умолчанию
+  }
+
+
+
+
+
+  
+  
+
+  
 </script>
 
 <style>
-  @import '../components/css/ImageCarousel.styles.css';
+@import '../components/css/ImageCarousel.styles.css';
 </style>
   
 <main class="p-0 relative flex flex-col items-center">
@@ -225,7 +272,7 @@
    <div class="absolute top-0 left-0 w-full h-full">
      {#each carouselItems as { text, position, logo, platforms }, index (text)}
        {#if index === mainImageIndex}
-         <div style={`top: ${position.top}; left: ${position.left};`} class=" text-white 8k:text-[250px] 4k:text-[140px] 2k:text-[64px] xl:text-5xl xl:text-[43px] lg:text-[33.68px] md:text-[26px] sm:text-xl xsm:text-[9px] font-extrabold 8k:leading-[270px] 4k:leading-[147px] 2k:leading-[77px] lg:leading-[39px] leading-tight  absolute  ${position.classPos}">
+         <div style={`top: ${position.top}; left: ${position.left};`} class="8k:mt-[500px] text-white 8k:text-[250px] 4k:text-[140px] 2k:text-[64px] xl:text-5xl xl:text-[43px] lg:text-[33.68px] md:text-[26px] sm:text-xl xsm:text-[12px] font-extrabold 8k:leading-[270px] 4k:leading-[147px] 2k:leading-[77px] lg:leading-[39px] leading-tight mb-8 absolute ${position.classPos}">
            {#if shouldCenterText(index)}
              <div class="text-center">
                {@html text.split('<br/>').join('<br />')}
@@ -252,7 +299,7 @@
      
          {#if visiblePlatforms.length > 0}
            {#each visiblePlatforms as platform (platform)}
-           <!-- secondary icons -->
+           <!-- secondaru icons -->
              <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[130px]">
                <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] xl:mb-[10px] md:mb-[20px] sm:mb-[25px] relative group flex flex-col items-center">  <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
                  <div class="text-center text-white text-opacity-0 8k:text-[75px] 8k:mt-[0] 4k:text-[32px] 4k:mt-0 2k:text-[14px] xl:text-[12px] md:text-[12px] sm:text-[12px] font-light font-['Inter'] leading-[23px]  group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">

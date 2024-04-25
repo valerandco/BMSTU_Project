@@ -5,4 +5,4 @@
       </a>
     </nav>
     <slot></slot>
-  </header>
+</header>

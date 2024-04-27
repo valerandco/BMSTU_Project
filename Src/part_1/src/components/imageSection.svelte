@@ -231,6 +231,8 @@
     return 100; // Высота видео по умолчанию
   }
 
+  
+
 
 
 
@@ -251,9 +253,12 @@
    {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
    <div class="video-container w-full" style="position: relative;">
      <iframe
+
        title="video"
        class="w-full h-full"
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" sandbox="allow-storage-access-by-user-activation
+       allow-scripts
+       allow-same-origin"
        src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}
        allow="autoplay; encrypted-media"
        allowfullscreen
@@ -299,7 +304,7 @@
      
          {#if visiblePlatforms.length > 0}
            {#each visiblePlatforms as platform (platform)}
-           <!-- secondaru icons -->
+           <!-- secondary icons -->
              <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[130px]">
                <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] xl:mb-[10px] md:mb-[20px] sm:mb-[25px] relative group flex flex-col items-center">  <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
                  <div class="text-center text-white text-opacity-0 8k:text-[75px] 8k:mt-[0] 4k:text-[32px] 4k:mt-0 2k:text-[14px] xl:text-[12px] md:text-[12px] sm:text-[12px] font-light font-['Inter'] leading-[23px]  group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">

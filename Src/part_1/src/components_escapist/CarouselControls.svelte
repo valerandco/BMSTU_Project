@@ -1,4 +1,3 @@
-<!-- CarouselControls.svelte -->
 <script>
     export let prevImage;
     export let nextImage;

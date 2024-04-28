@@ -1,6 +1,4 @@
-<!-- ImageCarousel.svelte -->
 <script>
-  import ImageDisplay from '../../components_escapist/ImageDisplay.svelte';
   import Thumbnail from '../../components_escapist/Thumbnail.svelte';
   import CarouselControls from '../../components_escapist/CarouselControls.svelte';
   import Header from '../../components_escapist/Header.svelte';
@@ -16,8 +14,6 @@
     '/img/Escapists 2 6.png',
     '/img/Escapists 2 7.png',
   ];
-
-
 
   function handleThumbnailClick(index) {
     currentIndex = index;

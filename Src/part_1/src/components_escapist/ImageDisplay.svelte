@@ -1,4 +1,3 @@
-<!-- ImageDisplay.svelte -->
 <script>
     export let images;
     export let currentIndex;

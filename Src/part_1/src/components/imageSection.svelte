@@ -22,14 +22,14 @@
   @import '../components/css/ImageCarousel.styles.css';
 </style>
 
-<div class="w-full h-full">
+<div class="w-full h-auto">
   {#if carouselItems && carouselItems.length > 0}
     {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
       <div class="video-container w-full" style="position: relative;">
         <iframe
           title="video"
           class="w-full h-full"
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+          style="video-container iframe"
           src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}
           allow="autoplay; encrypted-media"
           allowfullscreen

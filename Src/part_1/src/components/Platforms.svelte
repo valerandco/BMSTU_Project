@@ -1,4 +1,3 @@
-<!-- NavigationButtons.svelte -->
 <script>
     export let mainImageIndex;
     export let carouselItems;
@@ -59,4 +58,6 @@
       {/if}
     {/if}
   </div>
+  
+
   

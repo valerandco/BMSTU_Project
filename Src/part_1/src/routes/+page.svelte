@@ -27,10 +27,11 @@
       image: "src/img/Diablo.png", 
       text: "The new part of the <br/>famous series will <br/>plunge you into <br/>the horrors of Sanctuary", 
       position: {
-        top: '35%',
-        left: '5%',  
+        top: '42%',
+        left: '5%',   
         classPos: '',  
       },
+      
       logo: { image: "src/img/Logo/DIABLO_LOGO_520x300 1.png", position: { top: '14%', left: '4%' }, sizeClasses: "8k:w-[1124px] 8k:h-[650px] 4k:w-[624px] 4k:h-[370px] 2k:w-[325px] 2k:h-[188px] xl:w-[222px] xl:h-[128px] lg:w-[171.05px] lg:h-[98.95px] md:w-[136px] md:h-[79px] sm:w-[102px] sm:h-[59px]  xsm:w-[87px] xsm:h-[50px]" },
       platforms: [
         { main: "PS", additional: [] },
@@ -42,7 +43,7 @@
       image: "src/img/Warcraft.png", 
       text: "An eternal classic of war <br/>between the Horde and the<br/> people of Lordaeron", 
       position: {
-        top: '40%',
+        top: '47%',
         left: '30%',
         
         classPos: '',  
@@ -57,7 +58,7 @@
       image: "src/img/Overwatch.png", 
       text: "A fresh take on <br/>co-op shooters expands <br/>the horizons of <br/>the genre", 
       position: {
-        top: '35%',
+        top: '42%',
         left: '5%',
         classPos: '',  
       },
@@ -73,7 +74,7 @@
       image: "src/img/HoMM3.png", 
       text: "A modern version of <br/>the turn-based strategy <br/>genre immortal leader", 
       position: {
-        top: '40%',
+        top: '47%',
         left: '52%',
         
         classPos: '',  
@@ -91,7 +92,7 @@
       image: "src/img/Warhammer40k.png", 
       text: "Defy Chaos in a <br/>classic real-time <br/>strategy game", 
       position: {
-        top: '45%',
+        top: '52%',
         left: '5%',
         classPos: '',  
       },
@@ -104,7 +105,7 @@
       image: "src/img/Cyberpunk.png", 
       text: "A milestone in the <br/> contemporary art", 
       position: {
-        top: '60%',
+        top: '67%',
         left: '38%',
         
         classPos: '',  

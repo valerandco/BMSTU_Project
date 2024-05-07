@@ -6,6 +6,10 @@
     export let visiblePlatforms;
     export let showAdditionalPlatforms;
   </script>
+
+<style>
+  @import '../components/css/ImageCarousel.styles.css';
+</style>
   
   <div class="absolute bottom-0 left-0 w-full h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap 4k:pr-[200px] 4k:mb-[65px] 2k:mb-[40px] xl:mb-[30px] lg:mb-[18px] md:mb-[20px] sm:mb-[14px]">
     {#if mainImageIndex !== carouselItems.length - 1 || !carouselItems[mainImageIndex].video}
@@ -19,9 +23,9 @@
           <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[130px] sm:mb-[-3.2%] group sm:ml-[-1%] sm:mr-[-1%] md:ml-[1%] md:mr-[-1.3%] xl:ml-[1%] xl:mr-[-0.7%] 2k:ml-[1%] 2k:mr-[-0.2%] 4k:mr-[-0.2%] 8k:mr-[-0.6%] lg:mb-0 2k:mb-[-0.5%] ">
             <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] xl:mb-[10px] md:mb-[20px] sm:mb-[25px] relative group flex flex-col items-center">  
               <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
-              <div class="text-center text-white text-opacity-0 8k:text-[75px] 8k:mt-[0] 4k:text-[32px] 4k:mt-0 2k:text-[14px] xl:text-[12px] md:text-[12px] sm:text-[12px] font-light font-['Inter'] leading-[23px]  group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">
+              <div class="text-opacity-transition text-center text-white text-opacity-0 8k:text-[75px] 8k:mt-[0] 4k:text-[32px] 4k:mt-0 2k:text-[14px] xl:text-[12px] md:text-[12px] sm:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">
                 {platform}
-              </div>
+              </div>              
             </div>
           </div>
         {/each}
@@ -34,7 +38,7 @@
         >
           <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group ">
             <img class="w-full h-full" src={`src/img/Arrows/Back.svg`} alt="Arrow Back" />
-            <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px]  4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">Back</div>
+            <div class="text-opacity-transition text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px] 4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">Back</div>
           </div>
         </div>
       {:else}
@@ -49,9 +53,9 @@
           >
             <div class="w-[47px] h-[47px] 8k:w-[230px] 8k:h-[230px] 4k:w-[110px] 4k:h-[110px] 2k:w-[47px] 2k:h-[47px] xl:w-[40px] xl:h-[40px] md:w-[30px] md:h-[30px] sm:w-[25px] sm:h-[25px] relative group flex flex-col items-center">
               <img class="w-full h-full " src={`src/img/Platforms/${platform.main}.svg`} alt={platform.main} />
-              <div class="text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px] 4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">
+              <div class="text-opacity-transition text-center text-white text-opacity-0 text-xs 8k:text-[75px] 8k:mt-[50px] 4k:text-[32px] 4k:mt-5 2k:text-[14px] xl:text-[12px] md:text-[12px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out ">
                 {platform.main}
-              </div>
+              </div>              
             </div>
           </div>
         {/each}

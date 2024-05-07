@@ -47,3 +47,44 @@
     width: 100%;
     
   }
+
+  .text-opacity-transition {
+    opacity: 0;
+    transform: translateY(10px); /* Начальное смещение вниз */
+    transition: opacity 0.8s ease, transform 0.3s ease; /* Плавные переходы для opacity и transform */
+  }
+  
+  .group:hover .text-opacity-transition {
+    opacity: 1;
+    transform: translateY(0); /* Конечное смещение */
+  }
+  
+
+  .secondary-icons {
+    opacity: 0;
+    transform: translateX(20px); /* Начальное смещение вправо */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Плавные переходы для opacity и transform */
+  }
+  
+  .group:hover .secondary-icons {
+    opacity: 1;
+    transform: translateX(0); /* Конечное смещение */
+  }
+
+  /* Define CSS animation for sliding in from right to left */
+@keyframes slideInRightToLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* Apply the animation to the slide-animation class */
+.slide-animation {
+  animation: slideInRightToLeft 0.5s ease forwards;
+}
+
+  
+  

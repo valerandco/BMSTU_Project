@@ -176,7 +176,20 @@
     }
   }
 
+  function animateSlide(currentIndex, newIndex) {
+    const images = document.querySelectorAll('.main-image'); // Получаем все элементы изображений слайдов
+    images.forEach((image, index) => {
+        if (index === newIndex) {
+            image.classList.add('slide-animation'); // Добавляем класс анимации только к новому изображению
+        } else if (index === currentIndex) {
+            image.classList.remove('slide-animation'); // Удаляем класс анимации у предыдущего изображения
+        }
+    });
+}
+
+
   function goToSlide(index) {
+    
     mainImageIndex = index;
     resetVisiblePlatforms();
 
@@ -184,7 +197,9 @@
     if (carouselItems[index].video) {
       startTimer();
     }
+    animateSlide(index);
   }
+
 
   function handleKeyDown(event) {
     if (event.key === 'Enter' || event.key === ' ') {

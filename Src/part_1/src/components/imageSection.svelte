@@ -22,7 +22,7 @@
   @import '../components/css/ImageCarousel.styles.css';
 </style>
 
-<div class="w-full h-auto">
+<div class="w-full h-auto slide-animation">
   {#if carouselItems && carouselItems.length > 0}
     {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
       <div class="video-container w-full" style="position: relative;">

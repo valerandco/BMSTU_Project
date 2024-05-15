@@ -11,7 +11,7 @@
   @import '../components/css/ImageCarousel.styles.css';
 </style>
   
-  <div class="absolute bottom-0 left-0 w-full h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap 4k:pr-[200px] 4k:mb-[65px] 2k:mb-[40px] xl:mb-[30px] lg:mb-[18px] md:mb-[20px] sm:mb-[14px]">
+  <div class="absolute bottom-0 left-0 w-full h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap 4k:pr-[200px] 4k:mb-[65px] 2k:mb-[45px] xl:mb-[30px] lg:mb-[18px] md:mb-[10px] sm:mb-[14px]">
     {#if mainImageIndex !== carouselItems.length - 1 || !carouselItems[mainImageIndex].video}
       <div class="text-white sm:mb-1 md:mb-1 lg:mb-5 2k:mb-2 sm:mr-[2%] md:mr-[1%] lg:mr-[0%] 2k:mr-[-0.2%] 4k:mr-[-1.2%] 8k:mr-[-2.1%] 8k:mb-[530px] 4k:mb-[150px] xl:mb-[20px] text-[28px] 8k:text-[160px] 4k:text-[75px] 2k:text-[32px] xl:text-[24px] lg:text-xl md:text-xl sm:text-[17px] font-normal font-['Inter'] leading-[23px] whitespace-nowrap  4k:pl-[100px] xl:mt-[10px] xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block ">
         Buy it for

@@ -2,6 +2,10 @@
   import Thumbnail from '../../components_escapist/Thumbnail.svelte';
   import CarouselControls from '../../components_escapist/CarouselControls.svelte';
   import Header from '../../components_escapist/Header.svelte';
+  import { slide, fly } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
+
+  let direction = 1;
 
   let currentIndex = 0;
   let images = [
@@ -19,25 +23,26 @@
     currentIndex = index;
   }
 
-  function handleKeyPress(event, index) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      currentIndex = index;
-    }
-  }
-
   function prevImage() {
+    direction = -1;
     currentIndex = (currentIndex - 1 + images.length) % images.length;
   }
 
   function nextImage() {
+    direction = 1;
     currentIndex = (currentIndex + 1) % images.length;
   }
+  
 </script>
 
 <Header />
 
-<main class="p-0 relative">
-  <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} class="w-full h-full" /> 
+<main class="p-0 relative overflow-hidden h-[80vh] xsm:h-[15vh] sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh] 2k:h-[80vh]  4k:h-[80vh]  8k:h-[80vh]">
+  {#key currentIndex}
+  <img  src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} class="w-full h-full"
+  in:fly="{{ x: direction * 1000, duration: 300, easing: cubicOut }}"
+  out:fly="{{ x: -direction * 1000, duration: 300, easing: cubicOut }}" />
+  {/key}
 
   <CarouselControls prevImage={prevImage} nextImage={nextImage} />
 
@@ -53,3 +58,9 @@
     {/each}
   </div>
 </main>
+
+
+
+<style>
+  
+</style>

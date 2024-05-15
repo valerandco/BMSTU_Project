@@ -1,4 +1,7 @@
 <script>
+  import { slide } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
+
   export let mainImageIndex;
   export let carouselItems;
 
@@ -22,10 +25,11 @@
   @import '../components/css/ImageCarousel.styles.css';
 </style>
 
-<div class="w-full h-auto slide-animation">
+<div class="w-full h-auto">
   {#if carouselItems && carouselItems.length > 0}
     {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
       <div class="video-container w-full" style="position: relative;">
+        <!-- Используем директиву transition для применения транзиции slide -->
         <iframe
           title="video"
           class="w-full h-full"
@@ -35,11 +39,13 @@
           allowfullscreen
           on:timeupdate={handleVideoTimeUpdate}
           on:playing={startTimer}
+          transition:slide="{{ duration: 1000, axis:'x',  }}"
         ></iframe>
       </div>
     {:else}
-      <!-- Display image for other slides -->
-      <img class="main-image w-full object-fill" alt="" src={carouselItems[mainImageIndex].image} />
+    {#key mainImageIndex}
+    <img class="main-image w-full object-fill" transition:slide="{{duration: 800, axis:'x', x:-1, y: 0 }}" alt={`Image ${mainImageIndex + 1}`} src={carouselItems[mainImageIndex].image}  />
+    {/key}
     {/if}
   {/if}
 </div>

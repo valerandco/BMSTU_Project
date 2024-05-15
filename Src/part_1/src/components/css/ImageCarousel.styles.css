@@ -71,20 +71,4 @@
     transform: translateX(0); /* Конечное смещение */
   }
 
-  /* Define CSS animation for sliding in from right to left */
-@keyframes slideInRightToLeft {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-
-/* Apply the animation to the slide-animation class */
-.slide-animation {
-  animation: slideInRightToLeft 0.5s ease forwards;
-}
-
-  
-  
+ 

@@ -1,4 +1,6 @@
 <script>
+  import { slide } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
     export let mainImageIndex;
     export let carouselItems;
     

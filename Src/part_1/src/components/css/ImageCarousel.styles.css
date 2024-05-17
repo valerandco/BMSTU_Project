@@ -1,7 +1,7 @@
 .main-image {
     width: 100%;
     height: auto;
-    
+    object-fit: contain;
   }
 
   .arrow-button {
@@ -50,25 +50,29 @@
 
   .text-opacity-transition {
     opacity: 0;
-    transform: translateY(10px); /* Начальное смещение вниз */
-    transition: opacity 0.8s ease, transform 0.3s ease; /* Плавные переходы для opacity и transform */
+    transform: translateY(10px); 
+    transition: opacity 0.8s ease, transform 0.3s ease; 
   }
   
   .group:hover .text-opacity-transition {
     opacity: 1;
-    transform: translateY(0); /* Конечное смещение */
+    transform: translateY(0); 
   }
   
 
-  .secondary-icons {
+  .animated-image {
     opacity: 0;
-    transform: translateX(20px); /* Начальное смещение вправо */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Плавные переходы для opacity и transform */
+    animation: slideInFromRight 0.2s ease-in-out forwards;
   }
   
-  .group:hover .secondary-icons {
-    opacity: 1;
-    transform: translateX(0); /* Конечное смещение */
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
-
- 
+  

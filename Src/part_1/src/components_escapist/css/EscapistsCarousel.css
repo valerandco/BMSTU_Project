@@ -22,29 +22,4 @@
     right: 4px;
   }
 
-  /* Анимация для слайдов, движущихся влево */
-.slide-left-enter {
-  transform: translateX(100%);
-}
-.slide-left-enter-active {
-  transition: transform 0.5s ease;
-  transform: translateX(0%);
-}
-
-/* Анимация для слайдов, движущихся вправо */
-.slide-right-enter {
-  transform: translateX(-100%);
-}
-.slide-right-enter-active {
-  transition: transform 0.5s ease;
-  transform: translateX(0%);
-}
-
-/* Анимация для текущего слайда */
-.slide-current-enter {
-  transform: translateX(0%);
-}
-.slide-current-enter-active {
-  transition: transform 0.5s ease;
-  transform: translateX(0%);
-}
+ 

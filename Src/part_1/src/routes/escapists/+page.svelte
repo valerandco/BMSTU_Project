@@ -37,11 +37,11 @@
 
 <Header />
 
-<main class="p-0 relative overflow-hidden h-[80vh] xsm:h-[15vh] sm:h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh] 2k:h-[80vh]  4k:h-[80vh]  8k:h-[80vh]">
+<main class="p-0 relative overflow-hidden h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[42vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[90vh]  8k:h-[85vh]">
   {#key currentIndex}
   <img  src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} class="w-full h-full"
-  in:fly="{{ x: direction * 1000, duration: 300, easing: cubicOut }}"
-  out:fly="{{ x: -direction * 1000, duration: 300, easing: cubicOut }}" />
+  in:fly="{{ x: direction * 1000, duration: 500, easing: cubicOut }}"
+  out:fly="{{ x: -direction * 1000, duration: 500, easing: cubicOut }}" />
   {/key}
 
   <CarouselControls prevImage={prevImage} nextImage={nextImage} />
@@ -61,6 +61,3 @@
 
 
 
-<style>
-  
-</style>

@@ -8,6 +8,8 @@
   
   let hoveredIndex = null;
 
+  let direction = 1;
+
   function handleMouseEnter(index) {
     hoveredIndex = index;
   }
@@ -138,11 +140,13 @@
   }
 
   function nextImage() {
+    direction = 1;
     mainImageIndex = (mainImageIndex + 1) % carouselItems.length;
     resetVisiblePlatforms();
   }
  
   function prevImage() {
+    direction = -1;
     mainImageIndex = (mainImageIndex - 1 + carouselItems.length) % carouselItems.length;
     resetVisiblePlatforms();
   }
@@ -176,16 +180,7 @@
     }
   }
 
-  function animateSlide(currentIndex, newIndex) {
-    const images = document.querySelectorAll('.main-image'); // Получаем все элементы изображений слайдов
-    images.forEach((image, index) => {
-        if (index === newIndex) {
-            image.classList.add('slide-animation'); // Добавляем класс анимации только к новому изображению
-        } else if (index === currentIndex) {
-            image.classList.remove('slide-animation'); // Удаляем класс анимации у предыдущего изображения
-        }
-    });
-}
+  
 
 
   function goToSlide(index) {
@@ -197,7 +192,6 @@
     if (carouselItems[index].video) {
       startTimer();
     }
-    animateSlide(index);
   }
 
 
@@ -224,8 +218,8 @@
 <Header/>
 
 <main class="p-0 relative flex flex-col items-center">
-  <CarouselImage mainImageIndex={mainImageIndex} carouselItems={carouselItems}/>
-  <TextAndLogoSection mainImageIndex={mainImageIndex} carouselItems={carouselItems} />
+  <CarouselImage mainImageIndex={mainImageIndex} carouselItems={carouselItems} direction={direction}/>
+  <TextAndLogoSection mainImageIndex={mainImageIndex} carouselItems={carouselItems} direction={direction} />
   <CarouselControls prevImage={prevImage} nextImage={nextImage} />
   <Platforms 
     mainImageIndex={mainImageIndex}

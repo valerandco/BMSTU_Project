@@ -1,6 +1,8 @@
 <script>
-  import { slide } from 'svelte/transition';
+  import { slide, fly } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
+
+  export let direction;
 
   export let mainImageIndex;
   export let carouselItems;
@@ -23,29 +25,38 @@
 
 <style>
   @import '../components/css/ImageCarousel.styles.css';
+  .video-container {
+    position: relative;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+  
 </style>
 
-<div class="w-full h-auto">
+<div class="p-0 relative w-full overflow-hidden h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[82vh]  8k:h-[82vh]">
   {#if carouselItems && carouselItems.length > 0}
     {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
-      <div class="video-container w-full" style="position: relative;">
-        <!-- Используем директиву transition для применения транзиции slide -->
+      <div class="video-container w-full h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[82vh]  8k:h-[82vh]">
         <iframe
           title="video"
-          class="w-full h-full"
-          style="video-container iframe"
           src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}
           allow="autoplay; encrypted-media"
           allowfullscreen
           on:timeupdate={handleVideoTimeUpdate}
           on:playing={startTimer}
-          transition:slide="{{ duration: 1000, axis:'x',  }}"
+          in:fly="{{ x: direction * 1000, duration: 500, easing: cubicOut }}"
+          out:fly="{{ x: -direction * 1000, duration: 500, easing: cubicOut }}"
         ></iframe>
       </div>
     {:else}
-    {#key mainImageIndex}
-    <img class="main-image w-full object-fill" transition:slide="{{duration: 800, axis:'x', x:-1, y: 0 }}" alt={`Image ${mainImageIndex + 1}`} src={carouselItems[mainImageIndex].image}  />
-    {/key}
+      {#key mainImageIndex}
+        <img class="w-full h-full " alt={`Image ${mainImageIndex + 1}`} src={carouselItems[mainImageIndex].image} 
+        in:fly="{{ x: direction * 1000, duration: 250, easing: cubicOut }}"
+        out:fly="{{ x: -direction * 1000, duration: 250, easing: cubicOut }}" />
+      {/key}
     {/if}
   {/if}
 </div>
+

@@ -11,7 +11,7 @@
     <!-- Стрелка влево -->
   <button
   on:click={prevImage}
-  class="arrow-button left  py-[22%] px-[3%] mt-[0%]"
+  class="arrow-button left px-[3%] mt-[0%] sm:py-[25%] md:py-[23%] lg:py-[21%] xl:py-[21.8%] 2k:py-[20.6%] 4k:py-[21%] 8k:py-[20.4%]"
 >
   <img
     class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[80px] 8k:h-[80px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]"
@@ -22,7 +22,7 @@
  <!-- Стрелка вправо -->
  <button
  on:click={nextImage}
- class="arrow-button right  py-[22%] px-[3%] mt-[0%]"
+ class="arrow-button right px-[3%] mt-[0%] sm:py-[25%] md:py-[23%] lg:py-[21%] xl:py-[21.8%] 2k:py-[20.6%] 4k:py-[21%] 8k:py-[20.4%]"
 >
  <img
    class="xsm:hidden sm:block md:block lg:block xl:block 2k:block 4k:block 8k:block 8k:w-[80px] 8k:h-[80px] 4k:w-[35px] 4k:h-[35px] 2k:w-[18px] 2k:h-[18px] xl:w-[12px] xl:h-[12px] lg:w-[10px] lg:h-[10px] md:w-[8px] md:h-[8px] sm:w-[5px] sm:h-[5px]"

@@ -37,7 +37,7 @@
 
 <Header />
 
-<main class="p-0 relative overflow-hidden h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[42vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[90vh]  8k:h-[85vh]">
+<main class="p-0 relative overflow-hidden  h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[80vh] 2k:h-[85vh]  4k:h-[85vh]  8k:h-[82vh]">
   {#key currentIndex}
   <img  src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} class="w-full h-full"
   in:fly="{{ x: direction * 1000, duration: 500, easing: cubicOut }}"
@@ -58,6 +58,10 @@
     {/each}
   </div>
 </main>
+
+
+
+
 
 
 

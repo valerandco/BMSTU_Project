@@ -34,11 +34,11 @@
   }
   
 </style>
-
-<div class="p-0 relative w-full overflow-hidden h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[82vh]  8k:h-[82vh]">
+<!-- h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[82vh]  8k:h-[82vh] -->
+<div class="p-0 relative w-full overflow-hidden h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[80vh] 2k:h-[85vh]  4k:h-[85vh]  8k:h-[82vh]">
   {#if carouselItems && carouselItems.length > 0}
     {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
-      <div class="video-container w-full h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[70vh] 2k:h-[85vh]  4k:h-[82vh]  8k:h-[82vh]">
+      <div class="video-container w-full h-[80vh] xsm:h-[20vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[80vh] 2k:h-[85vh]  4k:h-[85vh]  8k:h-[82vh]">
         <iframe
           title="video"
           src={getYouTubeEmbedUrl(carouselItems[mainImageIndex].video)}

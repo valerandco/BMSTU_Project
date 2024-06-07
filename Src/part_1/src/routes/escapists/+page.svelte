@@ -1,9 +1,21 @@
 <script>
   import Thumbnail from '../../components_escapist/Thumbnail.svelte';
+  import Platforms from '../../components_escapist/Platforms.svelte';
+  import Blizzard from '../../components_escapist/Blizzard_classic_bundle.svelte';
+  import About from '../../components_escapist/Abot.svelte';
+  import System from '../../components_escapist/System.svelte';
+  import Write from '../../components_escapist/Write.svelte';
+  import Game_info from '../../components_escapist/Game_info.svelte';
+  import Game_param from '../../components_escapist/Game_param.svelte';
+  import Awards from '../../components_escapist/Awards.svelte';
+  import User_review from '../../components_escapist/User_reviews.svelte';
+  import Magazine from '../../components_escapist/Magazine.svelte';
+  import Similar_games from '../../components_escapist/Similar_games.svelte';
   import CarouselControls from '../../components_escapist/CarouselControls.svelte';
   import Header from '../../components_escapist/Header.svelte';
   import { slide, fly } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
+    import SimilarGames from '../../components_escapist/Similar_games.svelte';
 
   let direction = 1;
 
@@ -32,6 +44,8 @@
     direction = 1;
     currentIndex = (currentIndex + 1) % images.length;
   }
+
+  
   
 </script>
 
@@ -59,9 +73,44 @@
   </div>
 </main>
 
+<Platforms  />
 
+<div class="flex justify-center pt-2 mx-auto max-w-4xl lg:max-w-5xl 8k:max-w-12xl">
+  <!-- Main content column -->
+  <div class="flex-grow grid grid-cols-1 xl:grid-cols-2">
+    <!-- All main components in the first sub-column -->
+    <div class="flex flex-col space-y-4">
+      <Blizzard />
+      <About />
+      <System />
+    </div>
 
+    <!-- Game_info in the second sub-column -->
+    <div class="hidden xl:block mt-4 w-full xl:w-80">
+      <Game_info />
+      <Game_param />
+      <Awards />
+    </div>
+  </div>
+</div>
 
+<Similar_games />
+<Write />
 
+<div class="flex justify-center pt-2 mx-auto max-w-4xl lg:max-w-5xl 8k:max-w-12xl">
+  <!-- Main content column -->
+  <div class="flex-grow grid grid-cols-1 xl:grid-cols-2">
+    <!-- All main components in the first sub-column -->
+    <div class="flex flex-col space-y-4">
+      <User_review />
+      
+      
+      
+    </div>
 
-
+    <!-- Game_info in the second sub-column -->
+    <div class="hidden xl:block mt-4 w-full xl:w-80">
+      <Magazine />
+    </div>
+  </div>
+</div>

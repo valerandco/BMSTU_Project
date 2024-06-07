@@ -10,7 +10,13 @@ export default {
       colors: {
         customBlue: '#192E54',
         customHeader: '#395489',
-        customText: '#8F8F8F'
+        customText: '#8F8F8F', 
+        customText_green: '#155265', 
+        bluestart: '#062052', 
+        blueend: '#475E89', 
+        user_review_bg: '#1B3661',
+        price: '#11F8C4',
+        button: '#223D71'
       },
       
       screens: {

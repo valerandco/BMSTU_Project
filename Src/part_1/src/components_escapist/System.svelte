@@ -1,4 +1,7 @@
 <script>
+  let isVisible = true;  // Переменная для управления видимостью
+  import { fade } from 'svelte/transition';
+
     const systems = [
       {
         os: "Windows 7 / 8 / 8.1 / 10 x64",
@@ -17,12 +20,29 @@
         icons: ["Windows.svg"]
       }
     ];
+
+    function toggleVisibility() {
+      isVisible = !isVisible;  // Переключаем видимость
+  }
+
+  function handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick();
+    }
+  }
   </script>
   
-  <div class=" text-white p-4">
-    <div class="font-bold ml-5 mb-2">SYSTEM REQUIREMENTS</div>
-    <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto mt-4 xsm:px-5 sm:px-5 4k:mb-10" />
-    <div class="grid grid-cols-2 gap-4">
+  <div class=" text-white  ">
+    <div class="flex items-center text-white text-base mb-4 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
+     role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
+    <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
+    <p>SYSTEM REQUIREMENTS</p>
+  </div>
+
+  <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10" />
+
+    {#if isVisible}
+    <div class="grid grid-cols-2 gap-4 ">
       {#each systems as system}
         <div class=" p-4 rounded-lg">
           <div class="flex items-center mb-2">
@@ -54,9 +74,8 @@
         </div>
       {/each}
     </div>
+    {/if}
   </div>
   
-  <style>
-    /* Additional styling if necessary */
-  </style>
+ 
   

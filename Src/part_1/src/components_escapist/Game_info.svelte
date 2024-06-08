@@ -1,3 +1,17 @@
+<script>
+  let isVisible = true;  // Переменная для управления видимостью
+  import { fade } from 'svelte/transition';
+
+  function toggleVisibility() {
+      isVisible = !isVisible;  // Переключаем видимость
+  }
+
+  function handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick();
+    }
+  }
+</script>
 
     <div class="xsm:order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1 2xl:order-1 sm:mb-5 md:mb-5 lg:mb-5 xl:mb-0">
       <p class="text-white  text-sm font-semibold font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 4k:text-4xl"><span class="text-customText">Developer:</span>               Team17 </p>
@@ -14,13 +28,16 @@
       </button>
 
     
-    <div class="xsm:order-1 sm:order-1 md:order-1 lg:order-1 xl:order-2 2xl:order-2">
-      <p class="text-white text-base mb-4 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl">ON THE AIR</p>
-      <div class="mb-4 ">
-        <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10" />
-      </div>
+      <div class="flex items-center text-white text-base mb-4 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
+      role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
+     <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
+     <p>ON THE AIR</p>
+   </div>
+ 
+   <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10 mb-5" />
 
 
+  {#if isVisible}
   <div class="mb-6 xsm:p-0 sm:p-0">
     <div class="max-w-full px-5 mx-0 xsm:w-full sm:w-full xsm:px-0 sm:px-0 md:px-5 lg:px-5">
       <div class="video-container">
@@ -28,8 +45,9 @@
       </div>
     </div>
   </div>
+  {/if}
 
   
-        </div>
+        
 
 

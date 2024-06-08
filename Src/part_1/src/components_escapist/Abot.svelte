@@ -75,7 +75,7 @@
         
             <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto mt-4 xsm:px-5 sm:px-5 4k:mb-10" />
         
-            <button class="flex justify-end text-white text-base font-semibold customBlue mb-24 py-2 mt-4 font-inter xsm:px-5 sm:px-5 8k:text-7xl 4k:text-5xl 8k:mb-32 4k:mb-10" on:click={handleButtonClick}>
+            <button class="flex justify-end text-white text-base font-semibold customBlue mb-5 py-2 mt-4 font-inter xsm:px-5 sm:px-5 8k:text-7xl 4k:text-5xl 8k:mb-32 4k:mb-10" on:click={handleButtonClick}>
               {isTextVisible ? 'Hide' : 'Read more...'}
             </button>
   

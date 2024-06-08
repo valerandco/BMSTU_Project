@@ -38,17 +38,15 @@
 </script>
 
 <div class="">
-  <script>
-    function toggleVisibility() {
-      // Здесь ваш код для переключения видимости
-    }
-  </script>
+  
   
   <div class="flex items-center text-white text-base mb-4 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
      role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
     <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
     <p>GAME PARAMETERS</p>
   </div>
+
+  <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10" />
   
   <div class="">
     <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10" />
@@ -69,7 +67,7 @@
       </div>
   </div>
 
-  <button class="hover:bg-button ml-5 text-white font-bold py-2 px-3 mb-5 border border-white rounded-md transition duration-300 ease-in-out">
+  <button class="hover:bg-button ml-2 text-white font-bold py-2 px-3.5 mb-5 border border-white rounded-md transition duration-300 ease-in-out whitespace-nowrap">
       Find games with these parameters
   </button>
 
@@ -81,7 +79,7 @@
       {/each}
   </div>
 
-  <button class="hover:bg-button ml-5 mt-4 text-white font-bold py-2 px-20 mb-5 border border-white rounded-md transition duration-300 ease-in-out whitespace-nowrap">
-      View all achievements
+  <button class=" hover:bg-button ml-2 text-white font-bold py-2 px-16 mb-5 border border-white rounded-md transition duration-300 ease-in-out whitespace-nowrap">
+    View all achivements
   </button>
 {/if}

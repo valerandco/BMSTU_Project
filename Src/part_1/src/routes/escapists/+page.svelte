@@ -94,7 +94,7 @@
   </div>
 </div>
 
-<Similar_games />
+<!-- <Similar_games /> -->
 <Write />
 
 <div class="flex justify-center pt-2 mx-auto max-w-4xl lg:max-w-5xl 8k:max-w-12xl">

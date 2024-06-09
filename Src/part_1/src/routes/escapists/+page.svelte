@@ -11,6 +11,7 @@
   import User_review from '../../components_escapist/User_reviews.svelte';
   import Magazine from '../../components_escapist/Magazine.svelte';
   import Similar_games from '../../components_escapist/Similar_games.svelte';
+  import Team17 from '../../components_escapist/TEAM17.svelte';
   import CarouselControls from '../../components_escapist/CarouselControls.svelte';
   import Header from '../../components_escapist/Header.svelte';
   import { slide, fly } from 'svelte/transition';
@@ -86,7 +87,7 @@
     </div>
 
     <!-- Game_info in the second sub-column -->
-    <div class="hidden xl:block mt-4 w-full xl:w-80">
+    <div class="hidden xl:block mt-4 w-full xl:w-80 ">
       <Game_info />
       <Game_param />
       <Awards />
@@ -94,18 +95,31 @@
   </div>
 </div>
 
-<!-- <Similar_games /> -->
-<Write />
+
+<div class="flex justify-center pt-2 mx-auto max-w-5xl lg:max-w-5xl 8k:max-w-12xl">
+  <!-- Main content column -->
+  <div class="flex-grow grid grid-cols-1 xl:grid-cols-1">
+    <!-- All main components in the first sub-column -->
+    <div class="flex flex-col space-y-4">
+      <Similar_games />
+      <Team17 />
+      <Write />
+    </div>
+
+    <!-- Game_info in the second sub-column -->
+    
+  </div>
+</div>
+
+
+
 
 <div class="flex justify-center pt-2 mx-auto max-w-4xl lg:max-w-5xl 8k:max-w-12xl">
   <!-- Main content column -->
   <div class="flex-grow grid grid-cols-1 xl:grid-cols-2">
     <!-- All main components in the first sub-column -->
     <div class="flex flex-col space-y-4">
-      <User_review />
-      
-      
-      
+      <User_review />  
     </div>
 
     <!-- Game_info in the second sub-column -->

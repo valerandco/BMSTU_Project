@@ -1,5 +1,8 @@
 <script>
     import { onMount } from 'svelte';
+
+    let isVisible = true;  // Переменная для управления видимостью
+    import { fade } from 'svelte/transition';
   
     let isTextVisible = false;
   
@@ -21,18 +24,31 @@
     };
     document.body.appendChild(script);
   });
+
+  function toggleVisibility() {
+      isVisible = !isVisible;  // Переключаем видимость
+  }
+
+  function handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick();
+    }
+  }
   </script>
 
+<div class="flex items-center text-white text-base mb-4 mt-5 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
+     role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
+    <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
+    <p>ABOUT</p>
+  </div>
 
-<div class="flex justify-center max-w-xl  pt-2 mx-auto 8k:max-w-12xl 4k:max-w-12xl  mt-5 ">
+  <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-10" />
+
+{#if isVisible}
+<div class="flex justify-center max-w-xl  pt-2 mx-auto 8k:max-w-12xl 4k:max-w-12xl  mt-2 ">
     <div class="max-w-4xl 8k:max-w-8xl 4k:max-w-9xl grid grid-cols-3 lg:max-w-5xl lg:gap-x-0 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 xsm:grid-cols-1 8k:grid-cols-3 4k:grid-cols-3">
       <div class="col-span-4 flex flex-col justify-between sm:order-2 md:order-2 lg: order-2 xl:order-1 2xl:order-1 ">
-        <h1 class="text-white text-base font-semibold mb-4 font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-20 4k:text-5xl 4k:mb-10">ABOUT THIS GAME</h1>
-        
-            <div class="mb-4">
-              <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-20" />
-            </div>
-  
+
             <div class="mb-4 max-h-full">
               <img src= "src/img/About/The_Escapist_2_img_2.png" alt="The_Escapist_2_img_2" class="w-full h-auto xsm:px-5 sm:px-5 8k:mb-20 4k:mb-10" />
             </div>
@@ -83,3 +99,4 @@
       </div>
     </div>
 </div>
+{/if}

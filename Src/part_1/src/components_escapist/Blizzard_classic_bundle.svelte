@@ -21,7 +21,7 @@
     
    
     <div class="flex space-x-2 mt-5">
-      <div class=" text-white text-[26px] font-regular  font-inte shadow-md mr-3 ml-[15%]">
+      <div class=" text-white text-[26px] font-regular  font-inte mr-3 ml-[15%]">
         Buy it for
     </div>
       <img src="src/img/Platforms/Android.svg" alt="Windows" class=" h-11 w-11">

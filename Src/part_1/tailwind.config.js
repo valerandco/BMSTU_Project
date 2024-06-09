@@ -16,7 +16,8 @@ export default {
         blueend: '#475E89', 
         user_review_bg: '#1B3661',
         price: '#11F8C4',
-        button: '#223D71'
+        button: '#223D71', 
+        card: '#143156'
       },
       
       screens: {

@@ -6,7 +6,7 @@
     }
   </script>
   
-  <div class=" mx-[25%] mr-[34.5%] mx- rounded-lg ">
+  <div class="  rounded-lg ">
     <h2 class="text-white font-semibold mb-3">WRITE A REVIEW</h2>
     <textarea bind:value={review} class="w-full h-44 p-2 rounded-md border border-white bg-user_review_bg  text-white" placeholder="Type your review here..."></textarea>
     <div class="flex justify-end mt-4 mb-5">

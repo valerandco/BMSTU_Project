@@ -71,7 +71,7 @@
       Find games with these parameters
   </button>
 
-  <div class="grid grid-cols-5 gap-1 p-3">
+  <div class="grid grid-cols-5  p-3">
       {#each characters as character}
         <div class="aspect-w-1 aspect-h-1">
           <img src={`src/img/Achive/${character}`} alt="img" class="object-cover">
@@ -79,7 +79,7 @@
       {/each}
   </div>
 
-  <button class=" hover:bg-button ml-2 text-white font-bold py-2 px-16 mb-5 border border-white rounded-md transition duration-300 ease-in-out whitespace-nowrap">
+  <button class=" hover:bg-button ml-2 w-full text-white font-bold py-2 px-16 mb-5 border border-white rounded-md transition duration-300 ease-in-out whitespace-nowrap">
     View all achivements
   </button>
 {/if}

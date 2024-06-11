@@ -83,6 +83,10 @@
       <p class="text-gray-300 mt-2">{content}</p>
     </div>
   {/each}
+  <button class=" py-3 w-full bg-user_review_bg text-white rounded-lg " >
+    Show more...
+  </button>
 </div>
+
 {/if}
   

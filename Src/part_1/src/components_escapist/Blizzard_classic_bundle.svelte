@@ -4,7 +4,7 @@
     <div class="text-lg font-bold mb-3">Blizzard Classics Bundle
     </div>
 
-    <div class="grid grid-cols-4 gap-4 mb-4">
+    <div class="grid grid-cols-4 gap-0 mb-4">
       <img src="src/img/Blizzard/Diablo 2.png" alt="Diablo 2" class="">
       <img src="src/img/Blizzard/Warcraft 3.png" alt="Warcraft 3 Reforged" class="">
       <img src="src/img/Blizzard/WoW.png" alt="World of Warcraft: Wrath of the Lich King" class="">

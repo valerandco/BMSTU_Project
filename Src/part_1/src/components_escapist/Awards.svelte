@@ -20,7 +20,7 @@ import { fade } from 'svelte/transition';
   </script>
 
 
-<div class="flex items-center text-white text-base mb-2 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
+<div class="flex items-center text-white text-base mb-2 mt-5 font-semibold font-inter xsm:px-5 sm:px-5 8k:text-7xl 8k:mb-10 4k:text-5xl cursor-pointer"
      role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
     <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
     <p>AWARDS</p>

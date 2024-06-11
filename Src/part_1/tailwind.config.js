@@ -17,7 +17,8 @@ export default {
         user_review_bg: '#1B3661',
         price: '#11F8C4',
         button: '#223D71', 
-        card: '#143156'
+        card: '#143156',
+        like_hover: '#09234D'
       },
       
       screens: {

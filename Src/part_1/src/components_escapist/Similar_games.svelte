@@ -8,7 +8,7 @@
     { name: "Diablo Immortal", genre: "Real-time strategy", originalPrice: "", discount: "", price: "", image: "src/img/Similar_games/Group 8.png", platforms: { pc: true, playstation: true, xbox: true, nintendo: true }},
     { name: "World of Warcraft Classic", genre: "MMORPG", originalPrice: "", discount: "", price: "", image: "src/img/Similar_games/Group 9.png", platforms: { pc: true }},
     { name: "World of Warcraft", genre: "MMORPG", originalPrice: "", discount: "", price: "", image: "src/img/Similar_games/Group 10.png", platforms: { pc: true }},
-    { name: "Diablo III", genre: "RPG / Action", originalPrice: "", discount: "", price: "", image: "src/img/Similar_games/Group 11.png", platforms: { pc: true, playstation: true, xbox: true, nintendo: true }},
+    { name: "Diablo III", genre: "RPG / Action", originalPrice: "", price: "", image: "src/img/Similar_games/Group 11.png", platforms: { pc: true, playstation: true, xbox: true, nintendo: true }},
     { name: "The Escapists 2", genre: "RPG / Action / Strategy", originalPrice: "$13.59", discount: "-28%", price: "$9.99", image: "src/img/Similar_games/Group 12.png", platforms: { pc: true, mac: true, linux: true, playstation: true, xbox: true, nintendo: false, ios: true, android: true, }},
     { name: "Streets of Rogue", genre: "Roguelike", originalPrice: "$10.00", discount: "-75%", price: "$2.50", image: "src/img/Similar_games/Group 14.png", platforms: { pc: true, mac: true, linux: true, playstation: true, xbox: true, nintendo: false, ios: true, android: true,}},
     { name: "As Dusk Falls", genre: "Adventure / Interactive movie", originalPrice: "$29.99", discount: "-67%", price: "$9.89", image: "src/img/Similar_games/Group 13.png", platforms: { pc: true, xbox: false, }},
@@ -26,6 +26,9 @@
     games = allGames.slice(0, gamesToShow);
   }
 </script>
+
+
+
 
 <div class="grid grid-cols-4 gap-0">
   {#each games as game}
@@ -67,7 +70,9 @@
         <p class="text-md text-gray-300 mt-3 font-inter">{game.genre}</p>
         <div class="text-right flex items-center space-x-5  mt-2">
           <p class="text-lg line-through opacity-50 font-inter">{game.originalPrice}</p>
-          <span class="bg-price text-xs text-customText_green font-bold  uppercase px-2 py-1 rounded font-inter">{game.discount}</span>
+          {#if game.discount}
+            <span class="bg-price text-xs text-customText_green font-bold uppercase px-2 py-1 rounded font-inter">{game.discount}</span>
+          {/if}
           <p class="text-xl font-bold">{game.price}</p>
         </div>
       </div>

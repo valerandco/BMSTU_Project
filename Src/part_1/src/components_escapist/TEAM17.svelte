@@ -67,7 +67,9 @@
           <p class="text-md text-gray-300 mt-3 font-inter">{game.genre}</p>
           <div class="text-right flex items-center space-x-5  mt-2">
             <p class="text-lg line-through opacity-50 font-inter">{game.originalPrice}</p>
-            <span class="bg-price text-xs text-customText_green font-bold  uppercase px-2 py-1 rounded font-inter">{game.discount}</span>
+            {#if game.discount}
+            <span class="bg-price text-xs text-customText_green font-bold uppercase px-2 py-1 rounded font-inter">{game.discount}</span>
+          {/if}
             <p class="text-xl font-bold">{game.price}</p>
           </div>
         </div>

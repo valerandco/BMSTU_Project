@@ -76,7 +76,10 @@
 
 <Platforms  />
 
+
+
 <div class="flex justify-center pt-2 mx-auto max-w-5xl lg:max-w-5xl 8k:max-w-12xl">
+  
   <!-- Main content column -->
   <div class="flex-grow grid grid-cols-1 xl:grid-cols-2">
     <!-- All main components in the first sub-column -->

@@ -1,7 +1,11 @@
 
   
   <div class="bg-gradient-to-r from-blueend to-bluestart text-white p-4 max-w-xl mx-auto mt-5 ml-5 mr-4 ">
-    <div class="text-lg font-bold mb-3">Blizzard Classics Bundle
+    <div class="text-lg font-bold mb-2">Blizzard Classics Bundle
+    </div>
+
+    <div class="">
+      <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto mb-2" />
     </div>
 
     <div class="grid grid-cols-4 gap-0 mb-4">

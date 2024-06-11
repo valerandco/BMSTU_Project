@@ -34,6 +34,10 @@
       </div>
     </div>
   </div>
+
+  <div class="">
+    <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-1/2 ml-[20.2%] h-auto mt-3  mb-2 " />
+  </div>
   
   <style>
     .icon-container {

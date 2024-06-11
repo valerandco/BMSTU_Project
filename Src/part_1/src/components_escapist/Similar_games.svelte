@@ -25,12 +25,34 @@
     gamesToShow = nextToShow > allGames.length ? allGames.length : nextToShow;
     games = allGames.slice(0, gamesToShow);
   }
+  let isVisible = true;  // Переменная для управления видимостью
+    import { fade } from 'svelte/transition';
+
+    function toggleVisibility() {
+      isVisible = !isVisible;  // Переключаем видимость
+    }
+
+  function handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick();
+    }
+  }
 </script>
 
 
 
+<div class="flex items-center text-white text-base mb-0 font-semibold font-inter  4k:text-5xl cursor-pointer"
+  role="button" tabindex="0" on:click={toggleVisibility} on:keydown={handleKeydown}>
+ <img src={`src/img/Arrows/Arrow_${isVisible ? 'up' : 'down'}.svg`} alt="Toggle" class="mr-2 transition-transform duration-200" style="transform: rotate({isVisible ? 0 : 0}deg);">
+ <p>SIMILAR GAMES</p>
+</div>   
+<div class="">
+  <img src="src/img/About/Separator_long.png" alt="Separator_long" class="w-full h-auto  mb-2 " />
+</div>
 
+{#if isVisible}
 <div class="grid grid-cols-4 gap-0">
+  
   {#each games as game}
     <div class="text-white rounded-md overflow-hidden shadow-md" style="background: linear-gradient(to top, #143156, #2E4582);">
       <div class="w-full">
@@ -83,4 +105,6 @@
   <button class="px-6 py-3 bg-user_review_bg text-white rounded " on:click={showMore}>
     Show more...
   </button>
+{/if}
+
 {/if}

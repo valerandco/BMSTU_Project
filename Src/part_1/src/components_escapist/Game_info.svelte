@@ -18,12 +18,12 @@
       <p class="text-white  text-sm font-semibold font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 4k:text-4xl"><span class="text-customText">Publisher:</span>                 Team17</p>
       <p class="text-white  text-sm font-semibold font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 4k:text-4xl"><span class="text-customText">Release date:</span>          2023.04.17</p>
       <p class="text-white  text-sm font-semibold  font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 8k:mb-20 4k:text-4xl 4k:mb-10"><span class="text-customText">Genre:</span>                       RPG / Action / Strategy</p>
-      <p class="text-white  text-sm font-semibold mb-3 font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 8k:mb-20 4k:text-4xl 4k:mb-10"><span class="text-customText">Reviews:</span>                   Very positive</p>
+      <p class="text-white  text-sm font-semibold mb-3 font-inter  whitespace-pre xsm:px-5 sm:px-5 8k:text-6xl 8k:mb-20 4k:text-4xl 4k:mb-10 "><span class="text-customText ">Reviews:</span>                   Very positive</p>
 
       
     </div>
 
-    <button class=" hover:bg-button ml-5 text-white font-bold py-2 px-20 mb-5 border border-white rounded-md transition duration-300 ease-in-out">
+    <button class=" hover:bg-like_hover ml-5 text-white font-bold py-2 px-20 mb-5 border border-white rounded-md transition duration-300 ease-in-out">
         Add to watchlist
       </button>
 

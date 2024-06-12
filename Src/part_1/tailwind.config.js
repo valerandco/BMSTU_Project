@@ -20,6 +20,12 @@ export default {
         card: '#143156',
         like_hover: '#09234D'
       },
+
+      
+        backgroundImage: theme => ({
+          'gradient-to-r-white-transparent': 'linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0))'
+        }),
+      
       
       screens: {
         'xsm': '300px',

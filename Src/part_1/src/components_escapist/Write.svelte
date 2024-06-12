@@ -3,17 +3,17 @@
   
     function submitReview() {
       console.log("Review submitted:", review);
-      likeImage = "src/img/like_fill.svg"; // Handle the review submission logic
+      likeImage = "src/img/like_fill.svg"; 
     }
 
     
-  let likeImage = "src/img/like_outline.svg"; // начальное изображение
+  let likeImage = "src/img/like_outline.svg"; 
 
   function toggleLike() {
     if (likeImage === "src/img/like_outline.svg") {
-      likeImage = "src/img/like_fill.svg"; // переключить на заполненное сердце
+      likeImage = "src/img/like_fill.svg"; 
     } else {
-      likeImage = "src/img/like_outline.svg"; // переключить обратно на контурное сердце
+      likeImage = "src/img/like_outline.svg"; 
     }
   }
   </script>

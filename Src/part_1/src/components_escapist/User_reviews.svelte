@@ -2,47 +2,47 @@
     export let reviews = [
       {
         author: "WantedPanter",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "The Escapists 2 is a game that has added a lot to the formula that gave its predecessor success, while managing to maintain its core identity. If you played the original Escapists then getting the sequel is a no brainer, while if you fancy taking on a generally very challenging game where you have to rely on your own wits then The Escapists 2 may be just what you're looking for. There will be times when you get a little frustrated when you lose an item through messing with the wrong guards or a plan going wrong, but when you finally escape you'll feel elation as you'll love it when your plan comes together."
       },
       {
         author: "ProdigyMan",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "The Escapists 2 is a game that has added a lot to the formula that gave its predecessor success, while managing to maintain its core identity. If you played the original Escapists then getting the sequel is a no brainer, while if you fancy taking on a generally very challenging game where you have to rely on your own wits then The Escapists 2 may be just what you're looking for."
       },
       {
         author: "HannemanSlayer",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "With the arrival of local cooperative games, Nintendo Switch version of The Escapists 2 becomes a must if you like games that make use your imagination and think out of the box. On the other hand, lack of extra content could ward off those who already tried desktop versions."
       },
       {
         author: "MetalSlug",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "With the arrival of local cooperative games, Nintendo Switch version of The Escapists 2 becomes a must if you like games that make use your imagination and think out of the box. On the other hand, lack of extra content could ward off those who already tried desktop versions."
       },
       {
         author: "WantedPanter",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "The Escapists 2 is a game that has added a lot to the formula that gave its predecessor success, while managing to maintain its core identity. If you played the original Escapists then getting the sequel is a no brainer, while if you fancy taking on a generally very challenging game where you have to rely on your own wits then The Escapists 2 may be just what you're looking for. There will be times when you get a little frustrated when you lose an item through messing with the wrong guards or a plan going wrong, but when you finally escape you'll feel elation as you'll love it when your plan comes together."
       },
       {
         author: "ProdigyMan",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "The Escapists 2 is a game that has added a lot to the formula that gave its predecessor success, while managing to maintain its core identity. If you played the original Escapists then getting the sequel is a no brainer, while if you fancy taking on a generally very challenging game where you have to rely on your own wits then The Escapists 2 may be just what you're looking for."
       },
       {
         author: "HannemanSlayer",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "With the arrival of local cooperative games, Nintendo Switch version of The Escapists 2 becomes a must if you like games that make use your imagination and think out of the box. On the other hand, lack of extra content could ward off those who already tried desktop versions."
       },
       {
         author: "MetalSlug",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "With the arrival of local cooperative games, Nintendo Switch version of The Escapists 2 becomes a must if you like games that make use your imagination and think out of the box. On the other hand, lack of extra content could ward off those who already tried desktop versions."
       },
       {
         author: "WantedPanter",
-        avatar: "src/img/like_12 1.png", // Ensure you provide the correct path to the avatar image
+        avatar: "src/img/like_fill.svg", // Ensure you provide the correct path to the avatar image
         content: "The Escapists 2 is a game that has added a lot to the formula that gave its predecessor success, while managing to maintain its core identity. If you played the original Escapists then getting the sequel is a no brainer, while if you fancy taking on a generally very challenging game where you have to rely on your own wits then The Escapists 2 may be just what you're looking for. There will be times when you get a little frustrated when you lose an item through messing with the wrong guards or a plan going wrong, but when you finally escape you'll feel elation as you'll love it when your plan comes together."
       }
     ];
